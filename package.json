@@ -1,0 +1,28 @@
+{
+  "name": "backend-learnig",
+  "version": "1.0.0",
+  "keywords": [
+    "node js",
+    "express js",
+    "mongo db"
+  ],
+  "description": "backend coding examples and codes ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon src/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/harshalpatiler/Backend-learnig.git"
+  },
+  "author": "Harshal Patil",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/harshalpatiler/Backend-learnig/issues"
+  },
+  "homepage": "https://github.com/harshalpatiler/Backend-learnig#readme",
+  "dependencies": {
+    "express": "^4.21.0"
+  }
+}
