@@ -1,28 +1,35 @@
 const express = require("express");
 const app = express();
 const connectDb = require("./config/database");
-const User = require("./model/user")
+const User = require("./model/user");
 
-app.post("/signup", async (req,res)=>{
+app.post("/signup", async (req, res) => {
   const user = new User({
-    firstName: "don",
-    lastName: "hogg",
-    age:47,
-    emailId: "don@gmail.com",
-    gender: "male"
+    firstName: "MSD",
+    lastName: "Dhoni",
+    age: 41,
+    emailId: "msd@gmail.com",
+    gender: "male",
   });
- await user.save()
-  res.send("User has been addded successfully")
-})
 
-connectDb().then(() => {
-  console.log("connection to Db is estabalished");
-  app.listen(8000, () => {
-    console.log("Listening to port number 8000 ohh yeah");
-  });
-}).catch((err)=>{
-  console.log("Something went wrong !!!")
+  try {
+    await user.save();
+    res.send("User has been addded successfully");
+  } catch(err) {
+    res.status(400).send("Error in saving the user :" + err.message);
+  }
 });
+
+connectDb()
+  .then(() => {
+    console.log("connection to Db is estabalished");
+    app.listen(8000, () => {
+      console.log("Listening to port number 8000 ohh yeah");
+    });
+  })
+  .catch((err) => {
+    console.log("Something went wrong !!!");
+  });
 
 // app.get("/dev",(req, res)=>{
 //   //console.log(req);
